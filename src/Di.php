@@ -45,6 +45,7 @@ class Di implements ClassWrapperInterface
                 $constructor[$i] = $this->resolve(...$arg);
             }
             else {
+                // TODO: Вот здесь $arg может быть простым типом (строкой например) из за этого возникает getType() на string
                 $argType = $arg->getType()->getName();
 
                 try
