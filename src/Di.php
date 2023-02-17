@@ -46,6 +46,8 @@ class Di implements ClassWrapperInterface
             }
             else {
                 // TODO: Вот здесь $arg может быть простым типом (строкой например) из за этого возникает getType() на string
+                // Поправка, проблема в том что $this->constructor передается как массив строк (если задано напрямую через параметры конструктора)
+                // А в случае DI будет массив ReflectionParameter
                 $argType = $arg->getType()->getName();
 
                 try
